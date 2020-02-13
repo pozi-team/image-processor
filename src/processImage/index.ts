@@ -14,21 +14,16 @@ export default async ({ dimensions, file }) => {
     .then(async () => {
       // Resize image.
       const buffer = fs.readFileSync(tempLocalPath)
-
-      const promises = []
-      jobs.forEach(({ size, srcPath }) => {
-        // @ts-ignore
-        promises.push( resizeImage({ buffer, size, srcPath }) )
+      const promises = jobs.map(({ size, srcPath }) => {
+        return resizeImage({ buffer, size, srcPath })
       })
       return Promise.all( promises )
     })
     .then(() => {
       // Upload back into the bucket.
-      const promises = []
-      jobs.forEach(({ name, srcPath }) => {
-        // @ts-ignore
-        promises.push( file.bucket.upload(srcPath, { destination: name }) )
-        console.log('Processed', srcPath)
+      const promises = jobs.map(({ name, srcPath }) => {
+        console.log('Process', srcPath)
+        return file.bucket.upload(srcPath, { destination: name })
       })
       return Promise.all( promises )
     })

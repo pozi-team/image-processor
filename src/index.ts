@@ -15,12 +15,13 @@ const getData = object => {
 }
 
 export default event => {
-  const data = getData( event )
-
   const isDeletionEvent = event.resourceState === 'not_exists'
   const isDeployEvent = !event.name
+  if (isDeletionEvent || isDeployEvent) return
+
+  const data = getData( event )
   const dimensions = data.dimensions
-  if (isDeletionEvent || isDeployEvent || !dimensions) return
+  if (!dimensions) return
 
   const file = storage.bucket(event.bucket).file(event.name)
   return processImage({ dimensions, file })
