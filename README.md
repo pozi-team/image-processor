@@ -1,5 +1,7 @@
 # @pozible/image-processor
-Listening to new objects added to GCS and properly resize images based on given dimensions if needed. This package is specifically prepared to be deployed on GCF using Pub/Sub triggers.
+Listening to new objects added to GCS and properly resize images based on given dimensions if needed.
+
+This package is specifically prepared to be deployed on GCF using Pub/Sub triggers. It works hand in hand with [@pozible/signed-upload](https://github.com/pozible/signed-upload) to prepare the metadata and upload the file to GCS bucket.
 
 ## Usage
 Write `index.js` as follows:
