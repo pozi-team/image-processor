@@ -23,7 +23,10 @@ export default async ({ dimensions, file }) => {
       // Upload back into the bucket.
       const promises = jobs.map(({ name, srcPath }) => {
         console.log('Process', srcPath)
-        return file.bucket.upload(srcPath, { destination: name })
+        return file.bucket.upload(srcPath, {
+          destination: name,
+          resumable: false // Ref: https://github.com/googleapis/nodejs-storage/issues/807
+        })
       })
       return Promise.all( promises )
     })
