@@ -1,8 +1,9 @@
 {
   "name": "@pozible/image-processor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Process images uploaded to GCS bucket.",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": "git@github.com:pozible/image-processor.git",
   "author": "spondbob <spondbob@eamca.com>",
   "keywords": [
@@ -15,12 +16,13 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@google-cloud/storage": "^4.3.0",
+    "@google-cloud/storage": "^5.8.5",
     "sharp": "^0.24.0"
   },
   "scripts": {
-    "build": "tsc --declaration",
-    "prepublish": "cp ../package.json . && cp ../README.md ."
+    "build": "tsc && cp README.md dist"
   },
-  "engines" : { "node" : ">=10" }
+  "engines": {
+    "node": ">=10"
+  }
 }
