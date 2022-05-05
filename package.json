@@ -12,12 +12,12 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@types/sharp": "^0.24.0",
+    "@types/sharp": "^0.30.2",
     "typescript": "^3.7.5"
   },
   "dependencies": {
     "@google-cloud/storage": "^5.8.5",
-    "sharp": "^0.24.0"
+    "sharp": "^0.30.4"
   },
   "scripts": {
     "build": "tsc && cp README.md dist"
