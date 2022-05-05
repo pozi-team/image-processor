@@ -20,7 +20,7 @@
     "sharp": "^0.30.4"
   },
   "scripts": {
-    "build": "tsc && cp README.md dist"
+    "build": "tsc && cp README.md dist && cp package.json dist && cp package-lock.json dist"
   },
   "engines": {
     "node": ">=10"

@@ -29,12 +29,9 @@
     "baseUrl": "."
   },
   "exclude": [
-    "dist",
     "node_modules"
   ],
   "include": [
-    "./src/**/*.ts",
-    "./package-lock.json",
-    "./package.json"
+    "./src/**/*.ts"
   ]
 }
